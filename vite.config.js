@@ -1,7 +1,7 @@
 /*
  * @Author: 徐建辰
  * @Date: 2021-11-01 09:42:59
- * @LastEditTime: 2021-11-01 14:12:27
+ * @LastEditTime: 2021-11-01 14:15:44
  * @LastEditors: Please set LastEditors
  * @Description: vite全局配置文件
  */
@@ -43,16 +43,8 @@ export default defineConfig({
       }
     }
   },
-  // build: {
-  //   assetsDir: "static/img/",
-  //   // 关闭打包计算
-  //   brotliSize: false,
-  //   rollupOptions: {
-  //     output: {
-  //       chunkFileNames: 'static/js/[name]-[hash].js',
-  //       entryFileNames: 'static/js/[name]-[hash].js',
-  //       assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
-  //     }
-  //   }
-  // }
+  build: {
+    // 关闭打包计算
+    brotliSize: false
+  }
 })

@@ -1,27 +1,24 @@
 <template>
-  <Demo />
-  <div class="container">
-    <div class="title">3434</div>
-  </div>
-  <img src="./assets/logo.png" alt="" srcset="">
-  <el-button type="primary">按钮</el-button>
-  <SvgIcon name="tables" />
-  <SvgIcon name="shops" />
+  <router-view />
+  <el-button @click="onClickLogin">去登录页</el-button>
+  <el-button @click="goBack">返回app.vue</el-button>
 </template>
 
 <script>
-import Demo from '@/components/demo'
-import SvgIcon from '@/components/svg'
+import {useRouter} from 'vue-router'
 export default {
-  components: {Demo, SvgIcon}
+  setup() {
+    const router = useRouter()
+    const onClickLogin = () => {
+      router.push('/login')
+    }
+    const goBack = () => {
+      router.replace('/home')
+    }
+
+    return {onClickLogin, goBack}
+  }
 }
 </script>
 
-<style scoped lang="scss">
-.container{
-  .title{
-    color: red;
-    font-size: 30px;
-  }
-}
-</style>
+
