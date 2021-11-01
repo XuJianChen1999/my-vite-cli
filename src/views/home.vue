@@ -21,7 +21,6 @@ import {defineAsyncComponent} from 'vue'
 export default {
   components: {
     Demo: defineAsyncComponent(() => import('@/components/demo')),
-    SvgIcon: defineAsyncComponent(() => import('@/components/svg'))
   },
   setup() {
     const {state} = useStore()
