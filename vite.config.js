@@ -1,7 +1,7 @@
 /*
  * @Author: 徐建辰
  * @Date: 2021-11-01 09:42:59
- * @LastEditTime: 2021-11-01 14:15:44
+ * @LastEditTime: 2021-11-01 15:03:18
  * @LastEditors: Please set LastEditors
  * @Description: vite全局配置文件
  */
@@ -10,6 +10,7 @@ import path from 'path'
 import vue from '@vitejs/plugin-vue'
 import StyleImport from 'vite-plugin-style-import'
 import {svgBuilder} from './src/plugins/svgBuilder'
+import externalGlobals from 'rollup-plugin-external-globals'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -45,6 +46,16 @@ export default defineConfig({
   },
   build: {
     // 关闭打包计算
-    brotliSize: false
+    brotliSize: false,
+    // 配置cdn
+    rollupOptions: {
+      external: ['vue', 'element-plus'],
+      plugins: [
+        externalGlobals({
+          vue: 'Vue',
+          'element-plus': 'ElementPlus',
+        })
+      ]
+    }
   }
 })
