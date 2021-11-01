@@ -1,7 +1,7 @@
 /*
  * @Author: 徐建辰
  * @Date: 2021-11-01 09:42:59
- * @LastEditTime: 2021-11-01 11:29:08
+ * @LastEditTime: 2021-11-01 14:12:27
  * @LastEditors: Please set LastEditors
  * @Description: vite全局配置文件
  */
@@ -13,6 +13,7 @@ import {svgBuilder} from './src/plugins/svgBuilder'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [
     vue(),
     // 按需导入element-plus组件
@@ -22,9 +23,6 @@ export default defineConfig({
         esModule: true,
         resolveStyle: (name) => {
           return `element-plus/theme-chalk/${name}.css`
-        },
-        resolveComponent: (name) => {
-          return `element-plus/lib/${name}`
         }
       }]
     }),
@@ -44,5 +42,17 @@ export default defineConfig({
         additionalData: '@import "./src/assets/styles/var.scss";'
       }
     }
-  }
+  },
+  // build: {
+  //   assetsDir: "static/img/",
+  //   // 关闭打包计算
+  //   brotliSize: false,
+  //   rollupOptions: {
+  //     output: {
+  //       chunkFileNames: 'static/js/[name]-[hash].js',
+  //       entryFileNames: 'static/js/[name]-[hash].js',
+  //       assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+  //     }
+  //   }
+  // }
 })
